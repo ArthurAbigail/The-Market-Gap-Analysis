@@ -201,7 +201,7 @@ display_df = fopp[[
 }).round(2)
 
 st.dataframe(
-    display_df.style.background_gradient(subset=["Score"], cmap="RdYlGn"),
+    display_df,
     use_container_width=True,
     hide_index=True,
 )
