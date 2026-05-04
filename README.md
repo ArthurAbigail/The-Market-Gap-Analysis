@@ -4,8 +4,75 @@
 **Deliverable:** Interactive Dashboard, Code Notebook & Insight Presentation
 
 ---
+## A. Executive Summary
+Analysis of 500,000 products from the Open Food Facts dataset confirms
+that the snack market is overwhelmingly concentrated in the high-sugar,
+low-protein quadrant, validating the client hypothesis about market
+oversaturation. Across eight snack categories analysed, Nuts & Seeds
+emerged as the strongest Blue Ocean opportunity with a Market Opportunity
+Score of 52.1 out of 100 nearly double that of Chocolate & Candy (11.4),
+the most saturated and nutritionally poor category in the dataset.
+Ingredient analysis of existing high-protein and low-sugar products
+identifies whey, peanut, and soy as the three dominant protein sources,
+giving the R&D team a validated and immediately actionable formulation
+starting point. The data supports an immediate investment in a
+high-protein, low-sugar Nuts & Seeds snack line as the clearest
+first-mover opportunity in the current market.
 
-## 1. Business Context
+## B. Project Links
+
+- **Notebook:** [Google Colab](https://colab.research.google.com/drive/1kx1MD0HaqwcTR-OWR9VYw4fR9DmXZD1K?usp=sharing)
+- **Dashboard:** [Streamlit App](https://the-market-gap-analysis-am4gnbq5haktmra3xq43re.streamlit.app/)
+- **Presentation:** [Google Slides](https://docs.google.com/presentation/d/1SRTucnT60J_tzusc_a-7uULXB4Ob4fq-zwONXvH_P-g/edit?usp=sharing)
+
+
+## C. Technical Explanation
+
+### Data Cleaning (Story 1)
+- Loaded the first 500,000 rows from the Open Food Facts .csv.gz file
+- Dropped rows with null values in product_name, sugars_100g, and proteins_100g
+- Removed biologically impossible values — any nutrient value above 100g per 100g
+- Filtered energy to a realistic range of 0 to 4,000 kJ per 100g since Open
+  Food Facts stores energy in kJ not kcal
+- Removed duplicate product names keeping the first occurrence to prevent
+  category distribution skew
+
+### Candidate's Choice — Market Opportunity Score Leaderboard
+
+What I added:
+A weighted Market Opportunity Score (0–100) that ranks every snack category
+by its Blue Ocean potential, displayed as an interactive leaderboard on the
+dashboard.
+
+Why I added it:
+The scatter plot and heatmap show WHERE the gap is but a client sitting
+in a boardroom needs to know WHICH category to enter first. I noticed that
+presenting multiple charts still required the client to interpret and compare
+them mentally before reaching a decision. By collapsing four data signals
+into one ranked score per category, the R&D team gets a single, defensible
+answer they can act on immediately without any further analysis.
+
+How the score works:
+The Market Opportunity Score is built on four weighted signals, 
+each chosen for a specific business reason.
+
+Protein content carries the highest weight at 35% because high-protein 
+snacking is the number one consumer health trend globally. Low sugar 
+follows at 30% as it directly addresses the core client brief of reducing 
+sugar oversaturation in the market. Fiber content accounts for 20% as a 
+secondary but increasingly demanded health signal among conscious consumers. 
+Finally, low competition is weighted at 15% — categories with fewer existing 
+products offer easier shelf placement, stronger pricing power, and better 
+margin potential for a new entrant.
+Together these four signals produce a single score out of 100 per category, 
+giving the R&D team one clear, ranked and defensible answer.
+
+What it delivers:
+The leaderboard ranks all seven categories from highest to lowest opportunity,
+shows a colour-coded bar chart from red to green, and displays a winner
+callout box naming the top category with its exact protein and sugar averages.
+
+## 1.Business Context
 **Helix CPG Partners** advises major food manufacturers on new product development. Our newest client, a global snack manufacturer, wants to launch a "Healthy Snacking" line. They believe the market is oversaturated with sugary treats, but they lack the data to prove where the specific gaps are.
 
 They have hired us to answer one question: **"Where is the 'Blue Ocean' in the snack aisle?"**
