@@ -31,7 +31,7 @@ first-mover opportunity in the current market.
 ### Data Cleaning (Story 1)
 - Loaded the first 500,000 rows from the Open Food Facts .csv.gz file
 - Dropped rows with null values in product_name, sugars_100g, and proteins_100g
-- Removed biologically impossible values — any nutrient value above 100g per 100g
+- Removed biologically impossible values which is any nutrient value above 100g per 100g
 - Filtered energy to a realistic range of 0 to 4,000 kJ per 100g since Open
   Food Facts stores energy in kJ not kcal
 - Removed duplicate product names keeping the first occurrence to prevent
